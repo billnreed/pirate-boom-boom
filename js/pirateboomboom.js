@@ -12,6 +12,7 @@ require(["crafty",
 
     Crafty.init(500, 500);
 
-    Crafty.scene("Game");
-    //Crafty.e("SceneManager").trigger("GameStart");
+    Crafty.e("SceneManager");
+
+ 	Crafty.trigger("GameStart");
 });

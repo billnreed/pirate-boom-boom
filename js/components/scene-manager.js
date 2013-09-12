@@ -4,8 +4,8 @@ define(["crafty",
 
 	Crafty.c("SceneManager", {
 		init: function() {
-			this.bind("GameStart", this._onGameStart)
-				.bind("PlayerDeath", this._onPlayerDeath);
+			Crafty.bind("GameStart", this._onGameStart);
+			Crafty.bind("PlayerDeath", this._onPlayerDeath);
 		},
 
 		_onGameStart: function() {

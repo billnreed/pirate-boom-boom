@@ -42,8 +42,7 @@ define(["crafty"], function(Crafty) {
 
         _handleDeath: function() {
             this.destroy();
-            //this.trigger("PlayerDeath");
-            Crafty.scene("GameOver");
+            Crafty.trigger("PlayerDeath");
         },
 
         _move: function(data) {
@@ -68,9 +67,9 @@ define(["crafty"], function(Crafty) {
                 this.y = 0;
             }
             //check bottom edge
-            if (this._y + this._h > STAGE_BOUNDS.y + STAGE_BOUNDS.h - 50) {
+            if (this._y + this._h > STAGE_BOUNDS.y + STAGE_BOUNDS.h) {
                 this._dy *= -1;
-                this.y = STAGE_BOUNDS.y + STAGE_BOUNDS.h - this.h - 50;
+                this.y = STAGE_BOUNDS.y + STAGE_BOUNDS.h - this.h;
             }
 
         }
