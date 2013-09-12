@@ -4,9 +4,12 @@ define(["crafty"], function(Crafty) {
 		_onDeathCallback: null,
 
 		health: function(health) {
-			this._health = health;
-
-			return this;
+			if (health === undefined) {
+				return this._health;
+			} else {
+				this._health = health;
+				return this;
+			}
 		},
 
 		onDeath: function(callback) {

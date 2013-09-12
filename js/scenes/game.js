@@ -6,19 +6,21 @@ define(["crafty",
         "components/bullet", 
         "components/suicide-enemy", 
         "components/takes-damage",
+        "components/gives-damage"
         ], function(Crafty, SuicideEnemyFactory) {
 
     var spawner = null;
+    var player = null;
     Crafty.scene("Game", function() {
         Crafty.background('rgb(0,100,200)');
 
-        var player = Crafty.e("Player");
+        player = Crafty.e("Player");
         Crafty.addEvent(player, Crafty.stage.elem, "mouseup", player.fire);
 
         spawner = Crafty.e("SuicideEnemySpawner")
                             .suicideEnemySpawner(player, {
-                                minInterval: 2000,
-                                maxInterval: 3000,
+                                minInterval: 500,
+                                maxInterval: 1250,
                                 minHealth: 5,
                                 maxHealth: 10,
                                 minSpeed: 3,
@@ -28,8 +30,7 @@ define(["crafty",
                             });
         spawner.start();
     }, function() {
-        if (spawner) {
-            spawner.stop();
-        }
+        spawner.stop();
+        Crafty.removeEvent(player, Crafty.stage.elem, "mouseup", player.fire);
     });
 });
