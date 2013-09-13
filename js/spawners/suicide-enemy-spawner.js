@@ -38,20 +38,20 @@ define(["crafty", "lodash"], function(Crafty, _, SuicideEnemyFactory) {
                 var sideToSpawn = this._randomBetween(1, 4);
                 if (sideToSpawn === 1) {
                     //top
-                    x = this._randomBetween(STAGE_BOUNDS.x - 100, STAGE_BOUNDS.x + STAGE_BOUNDS.w + 100);
-                    y = this._randomBetween(STAGE_BOUNDS.y - 100, STAGE_BOUNDS.y);
+                    x = this._randomBetween(STAGE_BOUNDS.left - 100, STAGE_BOUNDS.right + 100);
+                    y = this._randomBetween(STAGE_BOUNDS.top - 100, STAGE_BOUNDS.top);
                 } else if (sideToSpawn === 2) {
                     //right
-                    x = this._randomBetween(STAGE_BOUNDS.x + STAGE_BOUNDS.w, STAGE_BOUNDS.x + STAGE_BOUNDS.w + 100);
-                    y = this._randomBetween(STAGE_BOUNDS.y - 100, STAGE_BOUNDS.y + STAGE_BOUNDS.h + 100);
+                    x = this._randomBetween(STAGE_BOUNDS.right, STAGE_BOUNDS.right + 100);
+                    y = this._randomBetween(STAGE_BOUNDS.top - 100, STAGE_BOUNDS.bottom + 100);
                 } else if (sideToSpawn === 3) {
                     //bottom
-                    x = this._randomBetween(STAGE_BOUNDS.x - 100, STAGE_BOUNDS.x + STAGE_BOUNDS.w + 100);
-                    y = this._randomBetween(STAGE_BOUNDS.y + STAGE_BOUNDS.h, STAGE_BOUNDS.y + STAGE_BOUNDS.h + 100);
+                    x = this._randomBetween(STAGE_BOUNDS.left - 100, STAGE_BOUNDS.right + 100);
+                    y = this._randomBetween(STAGE_BOUNDS.bottom, STAGE_BOUNDS.bottom + 100);
                 } else if (sideToSpawn === 4) {
                     //left
-                    x = this._randomBetween(STAGE_BOUNDS.x - 100, STAGE_BOUNDS.x);
-                    y = this._randomBetween(STAGE_BOUNDS.y - 100, STAGE_BOUNDS.y + STAGE_BOUNDS.h + 100);
+                    x = this._randomBetween(STAGE_BOUNDS.left - 100, STAGE_BOUNDS.left);
+                    y = this._randomBetween(STAGE_BOUNDS.top - 100, STAGE_BOUNDS.bottom + 100);
                 }
 
                 var speed = this._randomBetween(this._options.minSpeed, this._options.maxSpeed);

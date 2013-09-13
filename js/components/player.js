@@ -10,7 +10,7 @@ define(["crafty"], function(Crafty) {
 
         init: function() {
             this.requires("2D, Canvas, Color, Delay, TakesDamage")
-                    .attr({x: (STAGE_BOUNDS.x + STAGE_BOUNDS.w) / 2, y: (STAGE_BOUNDS.y + STAGE_BOUNDS.h) / 2, w: 50, h: 50})
+                    .attr({x: (STAGE_BOUNDS.right) / 2, y: (STAGE_BOUNDS.bottom) / 2, w: 50, h: 50})
                     .color('rgb(0, 255, 0)')
                     .health(this._initialHealth)
                     .onDeath(this._handleDeath)
@@ -49,24 +49,24 @@ define(["crafty"], function(Crafty) {
 
 
             //check left edge
-            if (this.x < STAGE_BOUNDS.x) {
+            if (this.x < STAGE_BOUNDS.left) {
                 this._dx *= -1;
                 this.x = 0;
             }
             //check right edge
-            if (this.x + this.w > STAGE_BOUNDS.x + STAGE_BOUNDS.w) {
+            if (this.x + this.w > STAGE_BOUNDS.right) {
                 this._dx *= -1;
-                this.x = STAGE_BOUNDS.x + STAGE_BOUNDS.w - this.w;
+                this.x = STAGE_BOUNDS.right - this.w;
             }
             //check top edge
-            if (this.y < STAGE_BOUNDS.y) {
+            if (this.y < STAGE_BOUNDS.top) {
                 this._dy *= -1;
                 this.y = 0;
             }
             //check bottom edge
-            if (this._y + this._h > STAGE_BOUNDS.y + STAGE_BOUNDS.h) {
+            if (this._y + this._h > STAGE_BOUNDS.bottom) {
                 this._dy *= -1;
-                this.y = STAGE_BOUNDS.y + STAGE_BOUNDS.h - this.h;
+                this.y = STAGE_BOUNDS.bottom - this.h;
             }
 
         }
