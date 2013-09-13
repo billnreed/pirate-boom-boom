@@ -1,6 +1,6 @@
 define(["crafty"], function(Crafty) {
     Crafty.c("Player", {
-        _health: 15,
+        _initialHealth: 15,
         _recoilPower: 5,
         _dx: 0,
         _dy: 0,
@@ -12,7 +12,7 @@ define(["crafty"], function(Crafty) {
             this.requires("2D, Canvas, Color, Delay, TakesDamage")
                     .attr({x: (STAGE_BOUNDS.x + STAGE_BOUNDS.w) / 2, y: (STAGE_BOUNDS.y + STAGE_BOUNDS.h) / 2, w: 50, h: 50})
                     .color('rgb(0, 255, 0)')
-                    .health(this._health)
+                    .health(this._initialHealth)
                     .onDeath(this._handleDeath)
                     .bind("EnterFrame", this._move)
                     ;
@@ -46,7 +46,6 @@ define(["crafty"], function(Crafty) {
 
             this._dx *= this._friction;
             this._dy *= this._friction;
-
 
 
             //check left edge
