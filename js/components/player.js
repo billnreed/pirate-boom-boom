@@ -1,5 +1,6 @@
 define(["crafty"], function(Crafty) {
     Crafty.c("Player", {
+        _health: 15,
         _recoilPower: 5,
         _dx: 0,
         _dy: 0,
@@ -9,14 +10,13 @@ define(["crafty"], function(Crafty) {
 
         init: function() {
             this.requires("2D, Canvas, Color, Delay, TakesDamage")
-                .attr({x: (STAGE_BOUNDS.x + STAGE_BOUNDS.w) / 2, y: (STAGE_BOUNDS.y + STAGE_BOUNDS.h) / 2, w: 50, h: 50})
-                .color('rgb(0, 255, 0)')
-                .health(15)
-                .onDeath(this._handleDeath)
-                .bind("EnterFrame", this._move)
-                ;
+                    .attr({x: (STAGE_BOUNDS.x + STAGE_BOUNDS.w) / 2, y: (STAGE_BOUNDS.y + STAGE_BOUNDS.h) / 2, w: 50, h: 50})
+                    .color('rgb(0, 255, 0)')
+                    .health(this._health)
+                    .onDeath(this._handleDeath)
+                    .bind("EnterFrame", this._move)
+                    ;
         },
-
         fire: function(mouseEvent) {
             if (this._canFire) {
                 this._canFire = false;
@@ -25,31 +25,29 @@ define(["crafty"], function(Crafty) {
                 this._setRecoil(mouseEvent.offsetX, mouseEvent.offsetY);
 
                 this.delay(function() {
-                    this._canFire = true; 
+                    this._canFire = true;
                 }, this._reloadSpeed);
             }
         },
-
         _makeBullet: function(targetX, targetY) {
             Crafty.e("Bullet").bullet(this._x + this._w / 2, this._y + this._h / 2, targetX, targetY);
         },
-
         _setRecoil: function(targetX, targetY) {
             var recoilVector = new Crafty.math.Vector2D(targetX - this._x, targetY - this._y).negate().normalize();
             this._dx += recoilVector.x * this._recoilPower;
             this._dy += recoilVector.y * this._recoilPower;
         },
-
         _handleDeath: function() {
             this.destroy();
             Crafty.trigger("PlayerDeath");
         },
-
         _move: function(data) {
             this.shift(this._dx, this._dy);
 
             this._dx *= this._friction;
             this._dy *= this._friction;
+
+
 
             //check left edge
             if (this.x < STAGE_BOUNDS.x) {
