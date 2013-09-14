@@ -1,4 +1,4 @@
-define(["crafty", "lodash"], function(Crafty, _, SuicideEnemyFactory) {
+define(["crafty", "lodash", "components/suicide-enemy"], function(Crafty, _) {
     Crafty.c("SuicideEnemySpawner", {
         _continueSpawning: false,
         _player: null,

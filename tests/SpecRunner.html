@@ -1,50 +1,41 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-  "http://www.w3.org/TR/html4/loose.dtd">
+    "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-  <title>Jasmine Spec Runner</title>
+    <head>
+        <title>Jasmine Spec Runner</title>
 
-  <link rel="stylesheet" type="text/css" href="jasmine.css">
-  <script type="text/javascript" src="jasmine.js"></script>
-  <script type="text/javascript" src="jasmine-html.js"></script>
+        <link rel="stylesheet" type="text/css" href="jasmine.css">
+        <script type="text/javascript" src="jasmine.js"></script>
+        <script type="text/javascript" src="jasmine-html.js"></script>
 
-  <!-- include source files here... -->
+        <script type="text/javascript" src="../js/libs/require.js"></script>
 
+        <script type="text/javascript">
+            STAGE_BOUNDS = {x: 0, y: 0, w: 500, h: 500, left: 0, right: 500, top: 0, bottom: 500};
+            
+            require.config({
+                paths: {
+                    crafty: "../js/libs/crafty",
+                    lodash: "../js/libs/lodash",
+                    components: "../js/components", 
+                    scenes: "../js/scenes",
+                    spawners: "../js/spawners"
+                }
+            }); 
+ 
+            require(
+                    [
+                        "spawners-spec/suicide-enemy-spawner"
+                    ],
+                    function() {
+                        jasmine.getEnv().addReporter(new jasmine.HtmlReporter());
+                            
+                        jasmine.getEnv().execute();
+                    });
+        </script>
+ 
+    </head> 
 
-  <!-- include spec files here... -->
-
-
-  <script type="text/javascript">
-    (function() {
-      var jasmineEnv = jasmine.getEnv();
-      jasmineEnv.updateInterval = 1000;
-
-      var htmlReporter = new jasmine.HtmlReporter();
-
-      jasmineEnv.addReporter(htmlReporter);
-
-      jasmineEnv.specFilter = function(spec) {
-        return htmlReporter.specFilter(spec);
-      };
-
-      var currentWindowOnload = window.onload;
-
-      window.onload = function() {
-        if (currentWindowOnload) {
-          currentWindowOnload();
-        }
-        execJasmine();
-      };
-
-      function execJasmine() {
-        jasmineEnv.execute();
-      }
-
-    })();
-  </script>
-
-</head>
-
-<body>
-</body>
-</html>
+    <body>
+    </body>
+</html> 
