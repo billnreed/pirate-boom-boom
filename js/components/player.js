@@ -1,4 +1,4 @@
-define(["crafty"], function(Crafty) {
+define(["crafty", "components/takes-damage", "components/bullet"], function(Crafty) {
     Crafty.c("Player", {
         _initialHealth: 15,
         _recoilPower: 5,

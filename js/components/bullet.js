@@ -1,4 +1,9 @@
-define(["crafty"], function(Crafty) {
+define([
+        "crafty",
+        "components/moves-straight",
+        "components/destroy-offstage",
+        "components/gives-damage"
+       ], function(Crafty) {
 	Crafty.c("Bullet", {
 
 		init: function() {
