@@ -1,9 +1,8 @@
 define(["crafty"], function(Crafty) {
     Crafty.c("SuicideEnemy", {
-        //_damage: 0,
 
         init: function() {
-            this.requires("2D, Canvas, Color, Collision, MoveStraight, TakesDamage, GivesDamage, DestroyOffstage")
+            this.requires("2D, Canvas, Color, Collision, MovesStraight, TakesDamage, GivesDamage, DestroyOffstage")
                 .attr({w: 40, h: 40})
                 .color("rgb(255, 0, 0)")
                 .onDeath(this._handleDeath)
@@ -11,10 +10,6 @@ define(["crafty"], function(Crafty) {
                 .onHit("Bullet", this._handleBulletCollision)
                 ;
         },
-
-        /*damage: function(damage) {
-            this._damage = damage;
-        },*/
 
         _handleDeath: function() {
             this.destroy();
@@ -32,7 +27,7 @@ define(["crafty"], function(Crafty) {
             for (var i = 0; i < collisionList.length; i++) {
                 var bullet = collisionList[i].obj;
 
-                this.takeDamage(bullet.damage);
+                this.takeDamage(bullet.damage());
 
                 bullet.destroy();
             }

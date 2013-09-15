@@ -1,5 +1,5 @@
 define(["crafty"], function(Crafty) {
-    Crafty.c("MoveStraight", {
+    Crafty.c("MovesStraight", {
         _targetVector: null,
         _speed: 0,
 

@@ -13,7 +13,7 @@ define(["crafty", "lodash", "components/suicide-enemy"], function(Crafty, _) {
             minDamage: 0,
             maxDamage: 0,
             minSpeed: 0,
-            maxSpeed: 0,
+            maxSpeed: 0
         },
         init: function() {
             this.requires("Delay");
@@ -38,28 +38,41 @@ define(["crafty", "lodash", "components/suicide-enemy"], function(Crafty, _) {
                 var sideToSpawn = this._randomBetween(1, 4);
                 if (sideToSpawn === 1) {
                     //top
-                    x = this._randomBetween(STAGE_BOUNDS.left - 100, STAGE_BOUNDS.right + 100);
-                    y = this._randomBetween(STAGE_BOUNDS.top - 100, STAGE_BOUNDS.top);
+                    x = this._randomBetween(STAGE_BOUNDS.left - 100,
+                        STAGE_BOUNDS.right + 100);
+                    y = this._randomBetween(STAGE_BOUNDS.top - 100,
+                        STAGE_BOUNDS.top);
                 } else if (sideToSpawn === 2) {
                     //right
-                    x = this._randomBetween(STAGE_BOUNDS.right, STAGE_BOUNDS.right + 100);
-                    y = this._randomBetween(STAGE_BOUNDS.top - 100, STAGE_BOUNDS.bottom + 100);
+                    x = this._randomBetween(STAGE_BOUNDS.right,
+                        STAGE_BOUNDS.right + 100);
+                    y = this._randomBetween(STAGE_BOUNDS.top - 100,
+                        STAGE_BOUNDS.bottom + 100);
                 } else if (sideToSpawn === 3) {
                     //bottom
-                    x = this._randomBetween(STAGE_BOUNDS.left - 100, STAGE_BOUNDS.right + 100);
-                    y = this._randomBetween(STAGE_BOUNDS.bottom, STAGE_BOUNDS.bottom + 100);
+                    x = this._randomBetween(STAGE_BOUNDS.left - 100,
+                        STAGE_BOUNDS.right + 100);
+                    y = this._randomBetween(STAGE_BOUNDS.bottom,
+                        STAGE_BOUNDS.bottom + 100);
                 } else if (sideToSpawn === 4) {
                     //left
-                    x = this._randomBetween(STAGE_BOUNDS.left - 100, STAGE_BOUNDS.left);
-                    y = this._randomBetween(STAGE_BOUNDS.top - 100, STAGE_BOUNDS.bottom + 100);
+                    x = this._randomBetween(STAGE_BOUNDS.left - 100,
+                        STAGE_BOUNDS.left);
+                    y = this._randomBetween(STAGE_BOUNDS.top - 100,
+                        STAGE_BOUNDS.bottom + 100);
                 }
 
-                var speed = this._randomBetween(this._options.minSpeed, this._options.maxSpeed);
-                var health = this._randomBetween(this._options.minHealth, this._options.maxHealth);
-                var damage = this._randomBetween(this._options.minDamage, this._options.maxDamage);
-                var interval = this._randomBetween(this._options.minInterval, this._options.maxInterval);
+                var speed = this._randomBetween(this._options.minSpeed,
+                    this._options.maxSpeed);
+                var health = this._randomBetween(this._options.minHealth,
+                    this._options.maxHealth);
+                var damage = this._randomBetween(this._options.minDamage,
+                    this._options.maxDamage);
+                var interval = this._randomBetween(this._options.minInterval,
+                    this._options.maxInterval);
 
-                this._createSuicideEnemy(x, y, this._player.x, this._player.y, speed, health, damage);
+                this._createSuicideEnemy(x, y, this._player.x, this._player.y,
+                    speed, health, damage);
 
                 this.delay(function() {
                     this._spawn();
@@ -69,14 +82,15 @@ define(["crafty", "lodash", "components/suicide-enemy"], function(Crafty, _) {
         _randomBetween: function(min, max) {
             return Math.floor(Math.random() * (max - min + 1) + min);
         },
-        _createSuicideEnemy: function(x, y, targetX, targetY, speed, health, damage) {
+        _createSuicideEnemy: function(x, y, targetX, targetY, speed, health,
+            damage) {
             return Crafty.e("SuicideEnemy")
-                    .attr({x: x, y: y})
-                    .target(targetX, targetY)
-                    .speed(speed)
-                    .health(health)
-                    .damage(damage)
-                    ;
+                .attr({x: x, y: y})
+                .target(targetX, targetY)
+                .speed(speed)
+                .health(health)
+                .damage(damage)
+                ;
         }
     });
 });

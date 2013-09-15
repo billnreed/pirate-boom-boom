@@ -25,13 +25,18 @@
  
             require(
                     [
-                        "spawners-spec/suicide-enemy-spawner"
+                        "spawners-spec/suicide-enemy-spawner-spec",
+                        "components-spec/takes-damage-spec",
+                        "components-spec/destroy-offstage-spec",
+                        "components-spec/gives-damage-spec",
+                        "components-spec/moves-straight-spec"
                     ],
                     function() {
                         jasmine.getEnv().addReporter(new jasmine.HtmlReporter());
                             
                         jasmine.getEnv().execute();
-                    });
+                    }
+            );
         </script>
  
     </head> 

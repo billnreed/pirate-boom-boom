@@ -3,7 +3,7 @@ define(
         "crafty",
         "spawners/suicide-enemy-spawner",
         "components/destroy-offstage",
-        "components/move-straight",
+        "components/moves-straight",
         "components/player",
         "components/bullet",
         "components/suicide-enemy",
