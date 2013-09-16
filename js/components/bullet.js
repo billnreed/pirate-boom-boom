@@ -12,11 +12,11 @@ define([
 				;
 		},
 
-		bullet: function(sourceX, sourceY, targetX, targetY) {
+		bullet: function(sourceX, sourceY, targetX, targetY, damage) {
 			this.attr({x: sourceX - 10, y: sourceY - 10, w: 20, h: 20})
 				.target(targetX, targetY)
 				.speed(5)
-                .damage(5)
+                .damage(damage)
 				;
 
 			return this;
