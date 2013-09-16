@@ -1,6 +1,7 @@
 define(["crafty", "components/takes-damage", "components/bullet"], function(Crafty) {
     Crafty.c("Player", {
         _initialHealth: 15,
+        _bulletDamage: 5,
         _recoilPower: 5,
         _dx: 0,
         _dy: 0,
@@ -30,7 +31,7 @@ define(["crafty", "components/takes-damage", "components/bullet"], function(Craf
             }
         },
         _makeBullet: function(targetX, targetY) {
-            Crafty.e("Bullet").bullet(this._x + this._w / 2, this._y + this._h / 2, targetX, targetY);
+            Crafty.e("Bullet").bullet(this._x + this._w / 2, this._y + this._h / 2, targetX, targetY, this._bulletDamage);
         },
         _setRecoil: function(targetX, targetY) {
             var recoilVector = new Crafty.math.Vector2D(targetX - this._x, targetY - this._y).negate().normalize();
