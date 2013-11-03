@@ -12,8 +12,10 @@ define(["crafty"], function(Crafty) {
 			}
 		},
 
-		onDeath: function(callback) {
-			this._onDeathCallback = callback;
+		onDeath: function(context, callback) {
+			this._onDeathCallback = function() {
+                callback.call(context);
+            }
 
 			return this;
 		},

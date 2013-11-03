@@ -17,8 +17,8 @@ define(
 
                 spawner = Crafty.e("SuicideEnemySpawner")
                                 .suicideEnemySpawner(player, {
-                                    minInterval: 500,
-                                    maxInterval: 1250,
+                                    minInterval: 1750,
+                                    maxInterval: 2500,
                                     minHealth: 5,
                                     maxHealth: 10,
                                     minSpeed: 3,

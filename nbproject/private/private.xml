@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/C:/Users/Bill/Documents/GitHub/pirate-boom-boom/tests/SpecRunner.html</file>
+        <file>file:/C:/Users/Bill/Documents/GitHub/pirate-boom-boom/js/components/experience-coin.js</file>
+        <file>file:/C:/Users/Bill/Documents/GitHub/pirate-boom-boom/js/components/suicide-enemy.js</file>
+        <file>file:/C:/Users/Bill/Documents/GitHub/pirate-boom-boom/js/spawners/experience-coin-spawner.js</file>
+        <file>file:/C:/Users/Bill/Documents/GitHub/pirate-boom-boom/js/spawners/suicide-enemy-spawner.js</file>
+        <file>file:/C:/Users/Bill/Documents/GitHub/pirate-boom-boom/js/components/takes-damage.js</file>
+    </open-files>
 </project-private>

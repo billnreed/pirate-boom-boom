@@ -14,7 +14,7 @@ define(["crafty", "components/takes-damage", "components/bullet"], function(Craf
                     .attr({x: (STAGE_BOUNDS.right) / 2, y: (STAGE_BOUNDS.bottom) / 2, w: 50, h: 50})
                     .color('rgb(0, 255, 0)')
                     .health(this._initialHealth)
-                    .onDeath(this._handleDeath)
+                    .onDeath(this, this._handleDeath)
                     .bind("EnterFrame", this._move)
                     ;
         },
